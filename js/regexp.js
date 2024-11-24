@@ -71,7 +71,7 @@ function jump() {
     else if (Password.value == Repassword.value) {
         alert("注册成功，欢迎静雯小朋友进入登录界面！");
         // 页面跳转至登录页面
-        window.location.href = "../subpage/登录.html";
+        window.location.href = "../subpage/index.html";
     }
     else {
         alert("注册信息有误！");
@@ -80,5 +80,5 @@ function jump() {
 
 // 跳转至登陆页面
 function jump3() {
-    window.location.href = "../subpage/登录.html";
+    window.location.href = "../subpage/index.html";
 }
