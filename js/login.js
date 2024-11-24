@@ -40,7 +40,7 @@ function jump1() {
     if (email == document.getElementById("L_email").value && password == document.getElementById("L_pwd").value) {
         alert("登录成功，点击确定进入首页！");
         // 跳转至首页
-        window.location.href = "../subpage/index.html";
+        window.location.href = "../首页.html";
     }
     // 判断邮箱或密码的值是否为空
     else if (Email.value == "" || Password.value == "") {
