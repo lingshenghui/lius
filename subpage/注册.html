@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<div class="R_register">
+    <h3 style="color: rgb(60, 109, 176);">立即注册</h3>
+    <p>邮箱</p>
+    <p><input type="text" id="R_email"></p>
+    <p>用户名</p>
+    <p><input type="text" placeholder="用户名长度不能超过5位" id="R_user"></p>
+    <p> 性别</p>
+    <p>
+        <span>男</span>
+        <span><input style="width: auto;" type="radio" name="sex" value="男" checked="checked"></span>
+        <span>女</span>
+        <span><input style="width: auto;" type="radio" name="sex" value="女"></span>
+    </p>
+    <p>头像</p>
+    <p><input type="file" id="toux"></p>
+    <p>密码</p>
+    <p><input type="password" placeholder="密码长度至少为6位且为数字和字母的组合" id="R_pwd"></p>
+    <p>确认密码</p>
+    <p><input type="password" placeholder="两次密码需一致" id="R_repwd" onkeyup="checkpassword()"></p>
+    <span id="tishi"></span></input>
+    <p><button id="R_registerbtn" onclick="javascript:jump()">注册</button></p>
+</div>
+<div class="R_login">
+    <br><br>
+    <h3 class="title">已有账号？</h3>
+    <p style="color: white;">已有账号就登录吧，好久不见！</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><button id="R_loginbtn" href="./subpage/登录.html" onclick="javascript:jump3()">登录</button></p>
+</div>
+<!-- 引入注册页面的js文件 -->
+<script src="../js/regexp.js"></script>
+</body>
+
+</html>

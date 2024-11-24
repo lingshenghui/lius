@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <title>小视频</title>
+    <link rel="stylesheet" href="../css/player.css">
+    <script type="text/javascript">
+        function init() {
+            window.a = ["手艺云课堂", "既可观赏又可品尝，看船点大师高超技艺'以假乱真'！", "手艺云课堂", "听，汝瓷开片的声音……", "手艺云课堂", "蓝靛染织齐上阵，神探现场变巧手！", "手艺云课堂", "一针一线，缝出“网红爆款”——唐昌布鞋"];
+            window.late = document.getElementById("d");		//创建一个全		局变量late用于保存上次播放的电影
+            window.late_1 = document.getElementById("d");		//创建一个全局变量late_1用于保存上次悬浮的div
+            for (window.i = 1; i < 5; i++) {			//window.变量名：定义全局变量
+                var video = document.createElement("video");		//创建一个电影并复制src
+                video.src = "../media/" + i + ".mp4";
+                d();
+                shipin(video);
+                text(window.a[i]);
+            }
+        }
+
+        function d() {
+            window.div = document.createElement("div");		//创建电影栏目div用于保存一个电影信息
+            div.setAttribute("id", i);					//setAttribute() ：方法添加指定的属性，并为其赋指定的值。
+            document.getElementById("selector").appendChild(div);
+
+            window.div.onmouseover = function () {			//鼠标悬浮事件
+                if (this != window.late)			//避免鼠标移到正在播放的电影栏目
+                    this.style.backgroundColor = "cadetblue";
+                window.late_1 = this;
+            }
+            window.div.onmouseleave = function () {			//鼠标离开事件
+                if (window.late != window.late_1)	//避免在离开正在播放的电影栏目时也会恢复其背景色
+                    window.late_1.style.backgroundColor = "transparent";
+            }
+        }
+
+        function shipin(video) {
+            window.div.appendChild(video);
+            window.div.onclick = function () {				//电影栏目的		onclick事件
+                document.getElementById("video").src = video.src;
+                window.late.style.backgroundColor = "transparent";		//将前一个电影背景色恢复
+                this.style.backgroundColor = "#808080";					//将当前选中的电影背景色改变
+                document.getElementById("name").innerHTML = a[this.id * 2 - 1]; //动态改变视频名称
+                document.getElementById("author").innerHTML = a[this.id * 2 - 2];	//动态改变视频作者
+                window.late = this;						//更新late变量
+            }
+        }
+
+        function text(map) {
+            var div2 = document.createElement("div");				//电影的说明文字
+            div2.innerHTML = window.a[i * 2 - 1];			//a数组每两个元素存放一个视频的信息（作者、视频名）
+            window.div.appendChild(div2);
+        }
+    </script>
+
+</head>
+
+<body onload="init()">
+    <h1 style="text-indent: -9999"></h1>
+    <div id="titleBar">
+        <a href="../index.html" target="_blank"><img class="logo" src="../img/logo.png" /></a>
+        <p class="name">小视频</p>
+    </div>
+    <div id="player">
+        <div class="video">
+            <video id="video" src="../media/1.mp4" autoplay="autoplay"></video>
+            <div class="controls">
+                <div class="play" style="cursor: pointer;">播放</div>
+                <div class="go" style="cursor: pointer;">快进</div>
+                <div class="back" style="cursor: pointer;">快退</div>
+                <div class="progress">
+                    <div class="progressInner">
+                    </div>
+                    <span class="circle"></span>
+                </div>
+                <div class="time">
+                    <span class="nowTime">00:00:00</span>/
+                    <span class="allTime">00:00:26</span>
+                </div>
+                <div class="mute" data-num="0" style="cursor: pointer;">静音</div>
+                <div class="volume" style="cursor: pointer;">音量</div>
+                <div class="allScreen" style="cursor: pointer;">全屏</div>
+                <input type="range" value="0" min="0" max="100" id="range" orient="vertical">
+            </div>
+        </div>
+        <div id="name">既可观赏又可品尝，看船点大师高超技艺"以假乱真"！</div>
+        <div id="author"></div>
+    </div>
+
+    <div id="selector"></div>
+    <div id="d" style="width: 0px; height: 0px;"></div> <!--定义一个空的div是为了js里面为对象变量初始化-->
+    <script src="../js/player.js"></script>
+</body>
+
+</html>
